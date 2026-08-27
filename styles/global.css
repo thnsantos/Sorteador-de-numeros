@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+
+  /*CORES DO PROJETO*/
+  --content-primary: #FFFFFF;
+  --content-secondary: #C7C9CC;
+  --content-tertiary: #D9D9D9;
+  --content-brand: #C58DE7;
+  --content-inverse: #030203;
+
+  /* BACKGROUND */
+  --background-primary:#020202;
+  --background-secondary:#111012;
+  --background-tertiary:#24222E;
+  --background-brand:#C58DE7;
+  --background-gray:#3D3D3D;
+
+  /* ACCENT */
+  --accent-pink: #D586E0;
+  --accent-blue: #91A1FA;
+  --accent-green: #6cbe69;
+  --accent-lime: #D1DC97;
+  --accent-red: #E9A9B3;
+
+  /* GRADIENT */
+  --gradient-border: #77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%;
+  --gradient-background:#D586E0 0%, #91A1FA 98.93%;
+  --gradient-content:#C7C9CC 0%, #3D3D3D 100%;
+  
+  /* TIPOGRAFIA */
+
+  --font-sora: "Sora", sans-serif;
+  --font-Rmono: "Roboto Mono", monospace;
+  --font-Roflex: "Roboto Flex", sans-serif;
+
+  --tx-lg: 800 72px/130% var(--font-sora);
+  --tx-md: 800 40px/130% var(--font-sora);
+  --tx-sm: 800 32px/130% var(--font-sora);
+
+  --overline: 600 16px/150% var(--font-Rmono);
+
+  --pg-lg: 400 16px/150% var(--font-Roflex);
+  --pg-md: 400 14px/150% var(--font-Roflex);
+  --pg-sm: 400 12px/150% var(--font-Roflex);
+  --lb-md: 600 20px/150% var(--font-Roflex);
+  --lb-sm: 600 16px/150% var(--font-Roflex);
+  
+}
+
+html {
+  font-size: 100%;
+  background-color: var(--background-primary);
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  font: var(--pg-lg);
+  color: var(--content-primary);
+  background-color: var(--background-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1 {
+  font: var(--tx-lg);
+  text-transform: uppercase;
+}
