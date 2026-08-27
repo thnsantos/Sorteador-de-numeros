@@ -30,9 +30,9 @@
   --accent-red: #E9A9B3;
 
   /* GRADIENT */
-  --gradient-border: #77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%;
-  --gradient-background:#D586E0 0%, #91A1FA 98.93%;
-  --gradient-content:#C7C9CC 0%, #3D3D3D 100%;
+  --gradient-border: linear-gradient(90deg, #77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%);
+  --gradient-background: linear-gradient(135deg, #D586E0 0%, #91A1FA 98.93%);
+  --gradient-content: linear-gradient(90deg, #c7c9cc 0%, #3d3d3d42 100%);
   
   /* TIPOGRAFIA */
 
@@ -44,7 +44,7 @@
   --tx-md: 800 40px/130% var(--font-sora);
   --tx-sm: 800 32px/130% var(--font-sora);
 
-  --overline: 600 16px/150% var(--font-Rmono);
+  --overline: 200 16px/150% var(--font-Rmono);
 
   --pg-lg: 400 16px/150% var(--font-Roflex);
   --pg-md: 400 14px/150% var(--font-Roflex);
