@@ -87,34 +87,14 @@
     } 
 
     .number {
-      width: 100%;
-      max-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .75rem;
     }
-  }
-}
 
-@media (max-width: 768px) {
-  .container {
-    width: calc(100% - 3rem);
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-
-  .sinopse,
-  .content-form,
-  .questions,
-  #title {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 10vw, 2.5rem);
-  }
-
-  #tx1,
-  #tx2,
-  .content-form p {
-    overflow-wrap: anywhere;
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
