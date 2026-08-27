@@ -12,7 +12,7 @@
   --content-primary: #FFFFFF;
   --content-secondary: #C7C9CC;
   --content-tertiary: #D9D9D9;
-  --content-brand: #C58DE7;
+  --content-brand: #b483d3;
   --content-inverse: #030203;
 
   /* BACKGROUND */
@@ -56,12 +56,15 @@
 
 html {
   font-size: 100%;
+  overflow: hidden;
   background-color: var(--background-primary);
   color-scheme: dark;
 }
 
 body {
   min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   font: var(--pg-lg);
   color: var(--content-primary);
   background-color: var(--background-primary);

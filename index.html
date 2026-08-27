@@ -49,41 +49,56 @@
 
     <div class="content-form">
       <div class="title-draw">
-        <h2>QUERO SORTEAR</h2>
-        <p>Defina o intervalo e a quantidade de números.</p>
+        <h2> QUERO SORTEAR</h2>
+        <p>defina o intervalo e a quantidade de números, clique em "Sortear" <br>
+          e veja os resultados na tela. É rápido e fácil!</p>
       </div>
 
-      <form id="raffle-form">
-        <div class="numeros">
+      <form class="number-content">
+        <div class="number">
           <div class="field">
             <label for="amount">NÚMEROS</label>
-            <input id="amount" name="amount" type="number" min="1" placeholder="2" required>
+            <input type="number"
+            id="amount"
+            name="amount"
+            placeholder="2"
+            min="1"
+            required>
           </div>
 
           <div class="field">
             <label for="min">DE</label>
-            <input id="min" name="min" type="number" placeholder="1" required>
+            <input type="number"
+            id="min"
+            name="min"
+            placeholder="1"
+            required>
           </div>
 
           <div class="field">
             <label for="max">ATÉ</label>
-            <input id="max" name="max" type="number" placeholder="100" required>
+            <input type="number"
+            id="max"
+            name="max"
+            placeholder="100"
+            required>
           </div>
         </div>
 
         <label class="no-repeat">
-          <input id="no-repeat" name="noRepeat" type="checkbox" checked>
-          <span class="toggle" aria-hidden="true"></span>
+          <input type="checkbox"
+          id="no-repeat"
+          name="noRepeat"
+          checked>
           <span>Não repetir número</span>
         </label>
 
-        <button type="submit">
-          SORTEAR
-          <span aria-hidden="true">&#8594;</span>
-        </button>
+        <div class="button">
+          <input type="submit" name="button" id="button" value="SORTEAR">
+        </div>
       </form>
 
-      <div class="raffle" id="result" aria-live="polite"></div>
+     
     </div>
   </section>
 
