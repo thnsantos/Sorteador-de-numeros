@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Roboto+Mono:ital,wght@0,700;1,700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
-  </head>
-  
   <title>Sorteador de Numeros</title>
   <link rel="stylesheet" href="styles/index.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
 <body>
 
   <nav>
@@ -22,7 +20,7 @@
 
       <div id="title">
         <p> ONLINE - GRATUIDO</p>
-        <h1>SORTEADOR <br> DE NÚMEROS</h1>
+        <h1>SORTEADOR <br>DE NÚMEROS</h1>
       </div>
 
       <div class= "questions"> 
@@ -50,7 +48,42 @@
     </div>
 
     <div class="content-form">
-      sqws
+      <div class="title-draw">
+        <h2>QUERO SORTEAR</h2>
+        <p>Defina o intervalo e a quantidade de números.</p>
+      </div>
+
+      <form id="raffle-form">
+        <div class="numeros">
+          <div class="field">
+            <label for="amount">NÚMEROS</label>
+            <input id="amount" name="amount" type="number" min="1" placeholder="2" required>
+          </div>
+
+          <div class="field">
+            <label for="min">DE</label>
+            <input id="min" name="min" type="number" placeholder="1" required>
+          </div>
+
+          <div class="field">
+            <label for="max">ATÉ</label>
+            <input id="max" name="max" type="number" placeholder="100" required>
+          </div>
+        </div>
+
+        <label class="no-repeat">
+          <input id="no-repeat" name="noRepeat" type="checkbox" checked>
+          <span class="toggle" aria-hidden="true"></span>
+          <span>Não repetir número</span>
+        </label>
+
+        <button type="submit">
+          SORTEAR
+          <span aria-hidden="true">&#8594;</span>
+        </button>
+      </form>
+
+      <div class="raffle" id="result" aria-live="polite"></div>
     </div>
   </section>
 
