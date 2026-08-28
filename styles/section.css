@@ -18,9 +18,7 @@
   max-width: 100%;
   height: auto;
   overflow: hidden;
-  /* background-color: blue; */
-  
-  margin-top: 4.5rem;
+  margin-top: 3.5rem;
   margin-left: 9rem;
   margin-right: 12rem;
 
@@ -252,5 +250,110 @@
       animation: arrow-forward-back .9s ease-in-out;
     }
 
+  }
+}
+
+.title-draw.is-leaving,
+.number-content.is-leaving {
+  animation: form-leave 280ms ease forwards;
+}
+
+.draw-result {
+  width: 100%;
+  text-align: center;
+}
+
+.content-form:has(.draw-result:not([hidden])) {
+  transform: translateY(-17rem);
+}
+
+.draw-result[hidden] {
+  display: none;
+}
+
+.draw-result.is-entering {
+  animation: result-enter 380ms ease both;
+}
+
+.result-heading {
+  display: grid;
+  gap: .5rem;
+}
+
+.result-heading h2 {
+  font: var(--lb-md);
+  color: var(--content-primary);
+}
+
+.result-heading p {
+  font: var(--overline);
+  color: var(--content-brand);
+}
+
+.result-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .75rem;
+  min-height: 7rem;
+  margin: 2.5rem 0;
+}
+
+.result-number {
+  display: grid;
+  place-items: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: .75rem;
+  background: var(--gradient-background);
+  color: var(--content-inverse);
+  font: 800 3rem/1 var(--font-sora);
+  opacity: 0;
+  transform: translateY(1rem) scale(.7);
+  animation: number-reveal 480ms cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+.draw-again {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  width: 100%;
+  height: 3.6rem;
+  border: 0;
+  border-radius: 1rem;
+  background: var(--background-tertiary);
+  color: var(--content-primary);
+  font: var(--lb-sm);
+  cursor: pointer;
+}
+
+.draw-again img {
+  width: 1.25rem;
+  filter: brightness(0) invert(1);
+}
+
+@keyframes form-leave {
+  to {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+}
+
+@keyframes result-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+@keyframes number-reveal {
+  70% {
+    transform: translateY(-.25rem) scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
