@@ -107,18 +107,21 @@
     }
 
     .field input {
+      position: relative;
       width: 100%;
       height: 3.6rem;
       padding:  .5rem;
       outline: none;
-      border: 1px solid transparent;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: .5rem;
-      background: var(--background-secondary) ;
+      background: rgba(17, 16, 18, 0.9);
       color: var(--content-primary);
       font: 800 1.75rem/1 var(--font-sora);
       text-align: center;
       appearance: textfield;
       -moz-appearance: textfield;
+      caret-color: #D586E0;
+      transition: box-shadow .2s ease, border-color .2s ease;
     }
 
     .field input::-webkit-outer-spin-button,
@@ -127,8 +130,19 @@
       -webkit-appearance: none;
     }
 
+    .field input:hover,
     .field input:focus {
-      border-color: var(--content-brand);
+      border: 1px solid transparent;
+      border-radius: .5rem;
+      background:
+        linear-gradient(rgba(17, 16, 18, 0.9), rgba(17, 16, 18, 0.9)) padding-box,
+        linear-gradient(90deg, #77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%) border-box;
+      background-clip: padding-box, border-box;
+    }
+
+    .field:hover label,
+    .field:focus-within label {
+      color: #D586E0;
     }
 
     .no-repeat {
@@ -182,7 +196,7 @@
       margin-top: 2rem;
     }
 
-    .button input {
+    .button button {
       width: 100%;
       height: 3.6rem;
       border: 0;
@@ -191,10 +205,22 @@
       color: var(--content-primary);
       font: var(--lb-sm);
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+      padding: 0 1.25rem;
     }
 
-    .button input:hover {
-      background: var(--content-brand);
+    .button button img {
+      width: 1.4rem;
+      height: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+
+    .button button:hover {
+      background: linear-gradient(135deg, rgba(197, 141, 231, .8), rgba(145, 161, 250, .8));
       color: var(--content-inverse);
     }
   }
