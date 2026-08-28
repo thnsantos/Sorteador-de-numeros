@@ -140,7 +140,8 @@
     }
 
     .field input:hover,
-    .field input:focus {
+    .field input:focus,
+    .field input.is-selected {
       border: 1px solid transparent;
       border-radius: .5rem;
       background:
@@ -154,7 +155,8 @@
     }
 
     .field:hover label,
-    .field:focus-within label {
+    .field:focus-within label,
+    .field:has(input.is-selected) label {
       color: #D586E0;
     }
 
@@ -306,11 +308,19 @@
   height: 5.5rem;
   border-radius: .75rem;
   background: var(--gradient-background);
-  color: var(--content-inverse);
+  color: transparent;
   font: 800 3rem/1 var(--font-sora);
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
   opacity: 0;
   transform: translateY(1rem) scale(.7);
-  animation: number-reveal 480ms cubic-bezier(.2, .8, .2, 1) forwards;
+  animation: number-reveal 1.8s cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+.result-number.is-finished {
+  background: transparent;
+  color: var(--background-brand);
+  -webkit-text-fill-color: var(--background-brand);
 }
 
 .draw-again {
@@ -326,11 +336,51 @@
   color: var(--content-primary);
   font: var(--lb-sm);
   cursor: pointer;
+  padding: 0 1.25rem;
+  transition: background-position .5s ease, color .3s ease;
+  background-position: 0 0, 0 0;
+  background-size: 100% 100%, 200% 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(1rem);
+}
+
+.draw-result.is-complete .draw-again {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity .4s ease, transform .4s ease, background-position .5s ease, color .3s ease;
 }
 
 .draw-again img {
   width: 1.25rem;
   filter: brightness(0) invert(1);
+  transform-origin: center;
+}
+
+.draw-again:hover {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--background-secondary), var(--background-secondary)) padding-box,
+    var(--gradient-border) border-box;
+  background-clip: padding-box, border-box;
+  background-position: 0 0, 100% 0;
+}
+
+.draw-again:hover img {
+  animation: spin-arrow 1s ease-in-out;
+}
+
+@keyframes spin-arrow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes form-leave {
@@ -348,12 +398,35 @@
 }
 
 @keyframes number-reveal {
-  70% {
-    transform: translateY(-.25rem) scale(1.08);
+  0% {
+    opacity: 0;
+    background: var(--gradient-background);
+    color: transparent;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+  }
+
+  15% {
+    opacity: 1;
+    color: transparent;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+
+  48% {
+    opacity: 1;
+    color: transparent;
+    transform: translateY(0) scale(1) rotate(360deg);
+  }
+
+  58%,
+  78% {
+    color: var(--content-inverse);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    background: transparent;
+    color: var(--background-brand);
+    transform: translateY(0) scale(1) rotate(360deg);
   }
 }
