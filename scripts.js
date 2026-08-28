@@ -4,11 +4,20 @@ const result = document.querySelector(".draw-result");
 const resultNumbers = document.querySelector(".result-numbers");
 const drawAgainButton = document.querySelector(".draw-again");
 const numberInputs = document.querySelectorAll(".field input");
+const formError = document.querySelector("#form-error");
 let revealTimer;
 
 numberInputs.forEach((input) => {
   input.addEventListener("focus", () => {
     input.classList.add("is-selected");
+  });
+
+  input.addEventListener("input", () => {
+    input.classList.remove("is-empty");
+
+    if ([...numberInputs].every((numberInput) => numberInput.value.trim() !== "")) {
+      formError.hidden = true;
+    }
   });
 });
 
@@ -40,11 +49,19 @@ function showResult(numbers) {
     const item = document.createElement("span");
     item.className = "result-number";
     item.style.animationDelay = `${index * 1900}ms`;
-    item.textContent = number;
-    item.addEventListener("animationend", () => {
+    const value = document.createElement("span");
+    value.className = "result-number-value";
+    value.textContent = number;
+    item.append(value);
+
+    item.addEventListener("animationend", (event) => {
+      if (event.animationName !== "number-reveal") {
+        return;
+      }
+
       item.style.animation = "none";
       item.classList.add("is-finished");
-    }, { once: true });
+    });
     resultNumbers.append(item);
   });
 
@@ -82,6 +99,7 @@ form.addEventListener("submit", (event) => {
   const min = Number(document.querySelector("#min").value);
   const max = Number(document.querySelector("#max").value);
   const noRepeat = document.querySelector("#no-repeat").checked;
+  const emptyInputs = [...numberInputs].filter((input) => input.value.trim() === "");
   const fieldsAreValid = Number.isInteger(amount)
     && Number.isInteger(min)
     && Number.isInteger(max)
@@ -90,6 +108,13 @@ form.addEventListener("submit", (event) => {
     && (!noRepeat || amount <= max - min + 1);
 
   if (!fieldsAreValid) {
+    if (emptyInputs.length > 0) {
+      emptyInputs.forEach((input) => input.classList.add("is-empty"));
+      formError.hidden = false;
+      emptyInputs[0].focus();
+      return;
+    }
+
     form.reportValidity();
     alert("Revise os valores informados. A quantidade deve caber no intervalo quando a repeticao estiver desativada.");
     return;
