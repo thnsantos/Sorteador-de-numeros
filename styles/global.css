@@ -56,15 +56,16 @@
 
 html {
   font-size: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: var(--background-primary);
   color-scheme: dark;
 }
 
 body {
   min-height: 100vh;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
   font: var(--pg-lg);
   color: var(--content-primary);
   background-color: var(--background-primary);

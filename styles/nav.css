@@ -19,7 +19,17 @@ nav {
 
 @media (max-width: 768px) {
   nav {
+    margin-top: 2rem;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+  }
+
+  nav span {
+    font-size: 1.25rem;
+  }
+
+  nav img {
+    width: 2rem;
+    height: 2rem;
   }
 }
