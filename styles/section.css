@@ -1,3 +1,14 @@
+@keyframes arrow-forward-back {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(.4rem);
+  }
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -120,8 +131,8 @@
       text-align: center;
       appearance: textfield;
       -moz-appearance: textfield;
-      caret-color: #D586E0;
-      transition: box-shadow .2s ease, border-color .2s ease;
+      caret-color: transparent;
+      transition: box-shadow .2s ease, border-color .2s ease, caret-color .8s ease;
     }
 
     .field input::-webkit-outer-spin-button,
@@ -138,6 +149,10 @@
         linear-gradient(rgba(17, 16, 18, 0.9), rgba(17, 16, 18, 0.9)) padding-box,
         linear-gradient(90deg, #77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%) border-box;
       background-clip: padding-box, border-box;
+    }
+
+    .field input:focus {
+      caret-color: #F2C8F7;
     }
 
     .field:hover label,
@@ -210,6 +225,9 @@
       justify-content: center;
       gap: .75rem;
       padding: 0 1.25rem;
+      transition: background-position .5s ease, color .3s ease;
+      background-position: 0 0, 0 0;
+      background-size: 100% 100%, 200% 100%;
     }
 
     .button button img {
@@ -217,6 +235,7 @@
       height: auto;
       display: block;
       filter: brightness(0) invert(1);
+      transition: transform .9s ease;
     }
 
     .button button:hover {
@@ -226,6 +245,12 @@
         linear-gradient(var(--background-secondary), var(--background-secondary)) padding-box,
         linear-gradient(90deg, #77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%) border-box;
       background-clip: padding-box, border-box;
+      background-position: 0 0, 100% 0;
     }
+
+    .button button:hover img {
+      animation: arrow-forward-back .9s ease-in-out;
+    }
+
   }
 }

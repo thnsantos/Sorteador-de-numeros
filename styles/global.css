@@ -68,6 +68,12 @@ body {
   font: var(--pg-lg);
   color: var(--content-primary);
   background-color: var(--background-primary);
+  background-image:
+    linear-gradient(200deg, rgba(2, 2, 2, 1) 0%, rgba(2, 2, 2, .9) 68%, rgba(2, 2, 2, .2) 100%),
+    url("../assets/Background.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 60rem auto;
   -webkit-font-smoothing: antialiased;
 
 }
